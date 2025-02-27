@@ -1,33 +1,41 @@
 <template>
   <div class="login-modal flex flex-col items-center">
-    <div class="font-bold text-4xl">Welcome back!</div>
+    <div class="font-bold text-4xl">欢迎回来!</div>
 
     <login-page-avator-svg class="mt-2" />
 
     <van-form @submit="onSubmit">
       <van-field
         v-model="formData.username"
-        label="username"
+        label="用户名"
         class="border-2 border-black rounded-lg mt-10"
+        :rules="[
+          { required: true, message: '请输入用户名' },
+          { pattern: /^.{6,32}$/, message: '用户名长度需在6-32位之间' },
+        ]"
       />
       <van-field
         v-model="formData.password"
-        label="password"
+        label="密码"
         :type="passwordType"
         class="border-2 border-black rounded-lg mt-4"
         :right-icon="passwordType === 'password' ? 'eye-o' : 'closed-eye'"
         @click-right-icon="passwordClickRightIcon"
+        :rules="[
+          { required: true, message: '请输入密码' },
+          { pattern: /^.{6,18}$/, message: '密码长度需在6-18位之间' },
+        ]"
       />
       <div style="margin: 16px">
         <van-button round block type="primary" native-type="submit">
-          Login
+          登录
         </van-button>
       </div>
     </van-form>
 
     <div class="text-align text-black mt-6 mb-24">
-      Don't have an account?
-      <span class="font-bold" @click="registerHandle">Sign up</span>
+      没有账号？
+      <span class="font-bold" @click="registerHandle">去注册</span>
     </div>
   </div>
 </template>
