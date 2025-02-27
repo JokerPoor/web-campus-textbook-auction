@@ -1,4 +1,5 @@
 import request from '@/request/index';
+import { E_IS_OR_NO, E_Valid } from '@/types/global';
 import { AxiosRequestConfig } from 'axios';
 
 export declare interface I_User_Info {
@@ -8,9 +9,9 @@ export declare interface I_User_Info {
 	fullName: string
 	createdAt: string
 	email: string
-	isFoul: 0 | 1
+	isFoul: E_IS_OR_NO
 	updatedAt: string
-	valid: 0 | 1
+	valid: E_Valid
 }
 
 export function postUserInfoLogin(config: AxiosRequestConfig) {

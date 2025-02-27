@@ -14,6 +14,7 @@
     "@vant/use": "^1.6.0",
     "@vant/weapp": "^1.11.7",
     "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
     "md-editor-v3": "^5.0.2",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.7",
